@@ -1,0 +1,93 @@
+#!/usr/bin/env ruby
+
+require "haml"
+require "sass"
+require "coffee-script"
+# require "compass"
+
+# A few helpful tips about the Rules file:
+#
+# * The string given to #compile and #route are matching patterns for
+#   identifiers--not for paths. Therefore, you can’t match on extension.
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+compile '/static/' do
+  # don’t filter static content
+end
+
+route '/assets/*' do
+  item.identifier[7..-2]
+end
+
+compile '/style/*' do
+  case item[:extension]
+  when /scss$/
+    filter :sass, syntax: :scss
+  when /css$/
+    # don’t filter stylesheets
+  end
+end
+
+route '/style/*' do
+  if File.basename(item[:filename]).start_with? '_'
+    # dont write to output
+  elsif item[:extension] == 'scss'
+    item.identifier.chop + '.css'
+  else
+    '/' + item[:filename].sub('content/', '')
+  end
+end
+
+compile '/js/*' do
+  case item[:extension]
+  when /coffee$/
+    filter :coffeescript
+  end
+end
+
+route '/js/*' do
+  case item[:extension]
+  when 'coffee'
+    item.identifier.chop + '.js'
+  else
+    '/' + item[:filename].sub('content/', '')
+  end
+end
+
+compile '*' do
+  case item[:extension]
+  when /haml$/
+    filter :haml
+    layout 'default'
+  when /html$/
+    filter :erb
+  else
+    if item.binary?
+      # don’t filter binary items
+    end
+  end
+end
+
+
+route '/font/*' do
+  item.identifier.chop + '.' + item[:extension]
+end
+
+route '*' do
+  if item.binary?
+    # Write item with identifier /foo/ to /foo.ext
+    item.identifier.chop + '.' + item[:extension]
+  else
+    # Write item with identifier /foo/ to /foo/index.html
+    item.identifier + 'index.html'
+  end
+end
+
+layout '*', :haml, filter: :html5

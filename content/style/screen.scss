@@ -1,0 +1,234 @@
+@import 'defaults.scss';
+
+@-webkit-keyframes heart-pulse {
+  0%   { font-size: 1.0em; }
+  15%  { font-size: 1.0em; }
+  35%  { font-size: 1.2em; }
+  50%  { font-size: 1.0em; }
+  65%  { font-size: 1.2em; }
+  85%  { font-size: 1.0em; }
+  100% { font-size: 1.0em; }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  box-sizing: border-box;
+  color: $base00;
+}
+
+html * {
+  color-profile: sRGB;
+  rendering-intent: auto;
+}
+
+/* light is default mode, so pair with general html definition */
+body {
+  background-color: $base3;
+  color: $base00;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $base01;
+    border-color: $base00;
+  }
+
+  background: $background;
+  text-align: center;
+
+  &:before {
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 10px;
+    content: "";
+    position: absolute;
+    background: $accent;
+  }
+
+  a, a:active, a:visited {
+    color: $base02;
+  }
+
+  a {
+    -webkit-transition: all 0.6s;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      color: $base03;
+      border-color: $accent;
+      &.logo {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &.yellow {
+    // $accent: $yellow;
+  }
+}
+
+#logo {
+  font-family: 'Dosis';
+  font-size: 2em;
+  color: white;
+  background-color: $base02;
+  text-align: center;
+  vertical-align: middle;
+  width: 3.5em;
+  height: 3.5em;
+  line-height: 3.5em;
+  border-radius: 100%;
+  margin: 0 1em;
+  -webkit-transition: all 0.8s;
+
+  &:hover {
+    background-color: $accent;
+    -webkit-transition: all 0.2s;
+    -webkit-transform: rotate(45deg) scale(1.25);
+    box-shadow: 5px 5px 20px rgba(#000, 0.3);
+  }
+}
+
+header {
+  nav {
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    -webkit-animation-delay: 1.0s;
+    -moz-animation-delay: 1.0s;
+    -o-animation-delay: 1.0s;
+    animation-delay: 1.0s;
+
+    a {
+      text-transform: uppercase;
+      font-size: 1em;
+      line-height: 2.5em;
+      display: inline-block;
+    }
+  }
+}
+
+p {
+  margin: 1em auto;
+  font-size: 2em;
+  max-width: 800px;
+  line-height: 1.75em;
+
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+  -o-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+}
+
+.social {
+  margin-top: 5em;
+  margin-bottom: 3em;
+
+  -webkit-animation-delay: 1.4s;
+  -moz-animation-delay: 1.4s;
+  -o-animation-delay: 1.4s;
+  animation-delay: 1.4s;
+
+  a {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 3.5em;
+    padding: 0;
+    display: inline-block;
+    margin: 0 10px 0 0;
+    position: relative;
+    border-bottom: none;
+
+    i {
+      color: $base1;
+
+      -webkit-transition: all 0.3s;
+    }
+
+    &:hover {
+      i {
+        color: $accent;
+      }
+    }
+  }
+}
+
+#creatings {
+  h3 {
+    font-size: 6em;
+    font-weight: 300;
+    color: $base02;
+    text-transform: uppercase;
+    margin: 50px auto 75px;
+    line-height: 1;
+  }
+
+  .tlt {
+    padding-top: 20px;
+
+    span {
+      color: $accent;
+      font-family: 'Inconsolata';
+      text-transform: none;
+      cursor: pointer;
+    }
+
+    ul {
+      display: none;
+    }
+
+    li {
+      &:hover {
+        color: black;
+        border-color: transparent;
+      }
+    }
+  }
+}
+
+code {
+  font-family: 'Inconsolata';
+  color: $base01;
+  background-color: $base3;
+  border: 1px solid $accent;
+  border-radius: 5px;
+  padding: 0.2em;
+}
+
+footer {
+  -webkit-transition: all 0.3s;
+  padding: 40px 0;
+  position: relative;
+  opacity: 0.3;
+
+  -webkit-animation-delay: 2.0s;
+  -moz-animation-delay: 2.0s;
+  -o-animation-delay: 2.0s;
+  animation-delay: 2.0s;
+
+  &:hover {
+    opacity: 1;
+
+    .heart {
+      color: $accent;
+      -webkit-animation: heart-pulse 1.5s infinite;
+    }
+  }
+
+  .heart-placeholder {
+    position: relative;
+    width: 12px;
+    height: 15px;
+    display: inline-block;
+  }
+
+  .heart {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+  }
+}
