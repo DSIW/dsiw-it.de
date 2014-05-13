@@ -13,6 +13,7 @@ gem 'albino'
 gem 'rake'
 gem 'haml'
 gem 'sass'
+gem 'bourbon', '~> 3.2.0'
 gem 'coffee-script'
 
 group :development do
