@@ -15,9 +15,23 @@
     %script{:type => "text/javascript", :src => "/js/jquery-2.1.0.min.js"}
     %script{:type => "text/javascript", :src => "/js/jquery.lettering.js"}
     %script{:type => "text/javascript", :src => "/js/jquery.textillate.js"}
+    %script{:type => "text/javascript", :src => "/js/jquery.scrollTo.js"}
     %script{:type => "text/javascript", :src => "/js/script.js"}
   %body
-    .page-border
+    .homepage-hero-module
+      .video-container
+        .filter
+        %video.fillWidth{:autoplay => true, :loop => true}
+          %source{:src => "/media/video.mp4", :type => "video/mp4"}
+            Your browser does not support the video tag. I suggest you upgrade your browser.
+          %source{:src => "/media/video.ogv", :type => "video/ogv"}
+            Your browser does not support the video tag. I suggest you upgrade your browser.
+          %source{:src => "/media/video.webm", :type => "video/webm"}
+            Your browser does not support the video tag. I suggest you upgrade your browser.
+        .poster.hidden
+          %img{:src => "/media/video.jpg", :alt => ""}
+      #header-logo
+    .page-border#content
       %header
         %nav.fadeInDown.animated
           %a{:href => "http://github.com/DSIW"}
