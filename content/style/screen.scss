@@ -9,16 +9,6 @@
 
 @import 'defaults.scss';
 
-@include keyframes(heart-pulse) {
-  0%   { font-size: 1.0em; }
-  15%  { font-size: 1.0em; }
-  35%  { font-size: 1.2em; }
-  50%  { font-size: 1.0em; }
-  65%  { font-size: 1.2em; }
-  85%  { font-size: 1.0em; }
-  100% { font-size: 1.0em; }
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -212,7 +202,6 @@ footer {
 
     .heart {
       color: $accent;
-      @include animation(heart-pulse 1.5s infinite);
     }
   }
 
