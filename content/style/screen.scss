@@ -121,13 +121,6 @@ body {
   border-radius: 100%;
   margin: 0 1em;
   @include transition(all 0.8s);
-
-  &:hover {
-    background-color: $accent;
-    @include transition(all 0.2s);
-    @include transform(rotate(45deg) scale(1.25));
-    box-shadow: 5px 5px 20px rgba(#000, 0.3);
-  }
 }
 
 header {
