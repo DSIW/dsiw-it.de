@@ -39,8 +39,8 @@
           %a.logo{:href => "/"}
             -# md5 hash of dsiw@dsiw-it.de
             %img#logo{:src => "https://gravatar.com/avatar/d7cc27935078cf0b2baa84e3140a3cf3?s=256&d=mm"}
-          %a{:href => "http://blog.dsiw-it.de/impressum/"}
-            Impressum
+          %a{:href => "mailto:dsiw@dsiw-it.de"}
+            Contact
       #main
         = yield
       %footer
@@ -55,3 +55,6 @@
         Hosted on
         %a{:href => "https://uberspace.de"}
           Uberspace
+        \·
+        %a{:href => "http://blog.dsiw-it.de/impressum/"}
+          Imprint
