@@ -46,6 +46,14 @@ $ ->
   $('#header-logo').on 'click', (e) ->
     $('body').scrollTo($('#content'), 500)
 
+  $('nav').scrollex
+    enter: (e) ->
+      $(this).addClass('animated fadeInDown')
+  $('#main').scrollex
+    enter: (e) ->
+      $(this).find('p').addClass('animated fadeInUp')
+      $(this).find('.social').addClass('animated fadeInUp')
+
   $('.tlt').click (e) ->
     $repoElement = $(e.target).parents('.tlt').find('.texts .current[data-url]')
     if $repoElement.length

@@ -127,7 +127,7 @@ header {
     margin-top: 60px;
     margin-bottom: 60px;
 
-    @include animation-delay(1.0s);
+    @include animation-delay(0.3s);
 
     a {
       text-transform: uppercase;
@@ -144,14 +144,14 @@ p {
   max-width: 800px;
   line-height: 1.75em;
 
-  @include animation-delay(1.2s);
+  @include animation-delay(0.1s);
 }
 
 .social {
   margin-top: 5em;
   margin-bottom: 3em;
 
-  @include animation-delay(1.4s);
+  @include animation-delay(0.3s);
 
   a {
     width: 80px;
@@ -166,7 +166,6 @@ p {
 
     i {
       color: $base1;
-
       @include transition(all 0.3s);
     }
 
