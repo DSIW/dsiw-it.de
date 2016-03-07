@@ -175,6 +175,13 @@ p {
       }
     }
   }
+
+  .space {
+    display: inline-block;
+    border-left: 1px solid;
+    height: 2.5em;
+    margin: 0 1.5em;
+  }
 }
 
 #creatings {
